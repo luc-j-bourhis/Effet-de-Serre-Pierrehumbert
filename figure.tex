@@ -1,0 +1,82 @@
+\begin{tikzpicture}[
+    scale=1.2,
+    >=Stealth,
+    axis/.style={->, thick},
+    line/.style={ultra thick},
+    dashed line/.style={dashed, thin},
+    wavy arrow/.style={
+        gray!70,
+        ultra thick,
+        ->,
+        decorate,
+        decoration={snake, amplitude=1.5mm, segment length=4mm, post length=3mm}
+    }
+]
+
+% ==================== LEFT SUBPLOT ====================
+\begin{scope}[xshift=0cm]
+    % Axes
+    \draw[axis] (0,0) -- (4.5,0) node[below=25pt, xshift=-90pt] {Temperature};
+    \draw[axis] (0,0) -- (0,4.5);
+
+    % Axis Labels
+    \node[left=2pt] at (0,0) {$p_{\text{s}}$};
+    \node[left=2pt] at (0,4.2) {$0$};
+    \node[left=12pt, rotate=90] at (0,2.25) {Pressure};
+
+    % Ticks on X-axis
+    \draw[thick] (1.2,0) -- (1.2,-0.1) node[below=2pt] {$T_{\text{rad}}$};
+    \draw[thick] (2.8,0) -- (2.8,-0.1) node[below=2pt] {$T_{s1}$};
+    \draw[thick] (3.8,0) -- (3.8,-0.1) node[below=2pt] {$T_{s2}$};
+
+    % Temperature Line
+    \draw[line] (0.3,2.5) -- (2.8,0);
+
+    % Point Prad1
+    \coordinate (P1) at (1.2,1.6);
+    \node[left=2pt] at (P1) {$P_{rad1}$};
+
+    % Dashed vertical line down to axis
+    \draw[dashed line] (1.2,0) -- (1.2,3.8);
+
+    % Wavy Arrow
+    \draw[wavy arrow] (1.2,1.6) -- (1.2,3.8);
+
+    % Radiation Label
+    \node[above right=15pt, rotate=65] at (1.2,2.8) {$\sigma T_{rad}^4$};
+\end{scope}
+
+% ==================== RIGHT SUBPLOT ====================
+\begin{scope}[xshift=0.5\textwidth]
+    % Axes
+    \draw[axis] (0,0) -- (4.5,0) node[below=25pt, xshift=-90pt] {Temperature};
+    \draw[axis] (0,0) -- (0,4.5);
+
+    % Axis Labels
+    \node[left=2pt] at (0,0) {$p_{\text{s}}$};
+    \node[left=2pt] at (0,4.2) {$0$};
+    \node[left=12pt, rotate=90] at (0,2.25) {Pressure};
+
+    % Ticks on X-axis
+    \draw[thick] (1.2,0) -- (1.2,-0.1) node[below=2pt] {$T_{\text{rad}}$};
+    \draw[thick] (2.8,0) -- (2.8,-0.1) node[below=2pt] {$T_{s1}$};
+    \draw[thick] (3.8,0) -- (3.8,-0.1) node[below=2pt] {$T_{s2}$};
+
+    % Temperature Line (Extended upwards to simulate higher pressure / greenhouse effect)
+    \draw[line] (0.3,3.5) -- (3.8,0);
+
+    % Point Prad2
+    \coordinate (P2) at (1.2,2.6);
+    \node[right=2pt] at (P2) {$P_{rad2}$};
+
+    % Dashed vertical line down to axis
+    \draw[dashed line] (1.2,0) -- (1.2,4.3);
+
+    % Wavy Arrow
+    \draw[wavy arrow] (1.2,2.6) -- (1.2,4.4);
+
+    % Radiation Label
+    \node[above right=15pt, rotate=65] at (1.2,3.4) {$\sigma T_{rad}^4$};
+\end{scope}
+
+\end{tikzpicture}
